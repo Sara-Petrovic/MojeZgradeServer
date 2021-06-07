@@ -47,6 +47,7 @@ public class RepositoryDBGeneric implements DbRepository<GenericEntity> { //ovde
         try {
             Connection connection = DbConnectionFactory.getInstance().getConnection();
             StringBuilder sb = new StringBuilder();
+            if(entity!=null) {
             sb.append("SELECT * FROM ")
                     .append(entity.getTableName()).append(" ")
                     .append(entity.getAlijas()).append(" ")
@@ -57,6 +58,9 @@ public class RepositoryDBGeneric implements DbRepository<GenericEntity> { //ovde
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
             return entity.makeList(rs);
+            }else {
+            	return null;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(RepositoryDBGeneric.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;

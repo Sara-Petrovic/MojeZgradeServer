@@ -44,12 +44,12 @@ public class UcitajListuMestaOperacijaTest {
 
 	@Test
 	public void testPreconditionsNull() {
-		assertThrows(java.lang.Exception.class,()->operacija.executeOperation(null));
+		assertThrows(java.lang.Exception.class,()->operacija.preconditions(null));
 	}
 
 	@Test
 	public void testPreconditionsNotClassMesto() {
-		assertThrows(java.lang.Exception.class,()->operacija.executeOperation(new Korisnik()));
+		assertThrows(java.lang.Exception.class,()->operacija.preconditions(new Korisnik()));
 	}
 	@Test
 	public void testExecuteOperation() throws Exception {
@@ -72,6 +72,11 @@ public class UcitajListuMestaOperacijaTest {
         assertNotNull(mesto);
         assertEquals(new Mesto(1l, "11000", "Beograd"), mesto);
         assertEquals(1, mesta.size());
+	}
+	@Test
+	public void testExecuteOperationNull() throws Exception {
+		assertThrows(java.lang.Exception.class,()->operacija.executeOperation(null));
+
 	}
 
 }

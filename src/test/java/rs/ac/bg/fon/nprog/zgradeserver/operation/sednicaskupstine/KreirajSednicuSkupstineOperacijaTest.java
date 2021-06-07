@@ -1,11 +1,14 @@
-package rs.ac.bg.fon.nprog.zgradeserver.operation.korisnik;
+package rs.ac.bg.fon.nprog.zgradeserver.operation.sednicaskupstine;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import javax.sound.midi.Soundbank;
 
 import org.junit.After;
 import org.junit.Before;
@@ -16,25 +19,29 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.stubbing.Answer;
 
+import rs.ac.bg.fon.nprog.zgradeserver.operation.mesto.UcitajListuMestaOperacija;
 import rs.ac.bg.fon.nprog.zgradeserver.repository.Repository;
 import rs.ac.bg.fon.nprog.zgradezajednicki.domain.Korisnik;
 import rs.ac.bg.fon.nprog.zgradezajednicki.domain.Mesto;
+import rs.ac.bg.fon.nprog.zgradezajednicki.domain.SednicaSkupstine;
 
 @ExtendWith(MockitoExtension.class)
 @RunWith(MockitoJUnitRunner.class)
-public class LoginOperacijaTest {
+public class KreirajSednicuSkupstineOperacijaTest {
 
-		private LoginOperacija operacija;
+		private KreirajSednicuSkupstineOperacija operacija;
 		
 		@Mock
 	    Repository mockedRepository; 
 		
 		@Before
 		public void setUp() throws Exception {
-			operacija = new LoginOperacija();
+			operacija = new KreirajSednicuSkupstineOperacija();
 		}
 
 		@After
@@ -48,31 +55,34 @@ public class LoginOperacijaTest {
 		}
 
 		@Test
-		public void testPreconditionsNotClassKorisnik() {
-			assertThrows(java.lang.Exception.class,()->operacija.preconditions(new Mesto()));
+		public void testPreconditionsNotClassSednicaSkupstine() {
+			assertThrows(java.lang.Exception.class,()->operacija.preconditions(new Korisnik()));
 		}
 		@Test
 		public void testExecuteOperation() throws Exception {
 			
-			List<Korisnik> korisnik = new ArrayList<Korisnik>() ;
-			korisnik.add(new Korisnik(1l,"Pera","Peric","pera","pera")); //korisnik koji se vraca iz "baze"
+			SednicaSkupstine ss = new SednicaSkupstine();
+			
+			SednicaSkupstine added= ss;
+			
+			ss.setId(1l);
 			
 			assertNotNull(mockedRepository);
-			Korisnik k = new Korisnik();
-			
-	        Mockito.when(mockedRepository.get(k)).thenReturn(korisnik);
+			Mockito.doAnswer(new Answer<Void>() {
+			    public Void answer(InvocationOnMock invocation) {
+			      Object[] args = invocation.getArguments();
+			      System.out.println("called with arguments: " + Arrays.toString(args));
+			      return null;
+			    }
+			}).when(mockedRepository).add(ss);
 	        operacija.setRepository(mockedRepository);
 
-
-	        operacija.executeOperation(k);
-	        Korisnik korisnik1 = operacija.getKorisnik();
+	       operacija.executeOperation(ss);
 
 	        // Check the result
-	        assertNotNull(korisnik1);
+	        assertNotNull(ss);
+	        System.out.println(ss);
 	        
-	        System.out.println(korisnik1);
-	        assertEquals(korisnik.get(0), korisnik1);
-
 		}
 		@Test
 		public void testExecuteOperationNull() throws Exception {
@@ -81,4 +91,3 @@ public class LoginOperacijaTest {
 		}
 
 	}
-
