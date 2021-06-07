@@ -23,7 +23,7 @@ public abstract class AbstractGenericOperation { //OpstaSistemskaOperacija
 	/**
 	 * Repozitorijum kome se pristupa kao Repository.
 	 */
-    protected final Repository repository;
+    protected Repository repository;
 
     /**
 	 * Kontruktor koji inicijalizuje objekat i dodeljuje repozitorijumu objekat klase RepositoryDBGeneric.
@@ -115,5 +115,17 @@ public abstract class AbstractGenericOperation { //OpstaSistemskaOperacija
     private void disconnect() throws Exception {
         ((DbRepository) repository).disconnect();
     }
+    
+    /**
+   	 * Postavlja repository na novu vrednost. Koristi se prilikom testiranja.
+   	 * 
+   	 * @param repository Repository kao Repository.
+   	 * 
+   	 */
+    public void setRepository(Repository repository) {
+		this.repository = repository;
+	}
+    
+    
 
 }
