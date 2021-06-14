@@ -59,7 +59,7 @@ public class NadjiSedniceSkupstinaOperacijaTest {
 	public void testExecuteOperation() throws Exception {
 
 		List<SednicaSkupstine> sednice = new ArrayList<SednicaSkupstine>();
-		sednice.add(new SednicaSkupstine(1l, new Date(), 5, "krov", null, null)); // korisnik koji se vraca iz "baze"
+		sednice.add(new SednicaSkupstine(1l, new Date(), 5, "krov", null, null)); 
 
 		assertNotNull(mockedRepository);
 		SednicaSkupstine ss = new SednicaSkupstine();

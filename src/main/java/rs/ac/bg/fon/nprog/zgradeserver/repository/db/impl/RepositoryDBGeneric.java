@@ -102,6 +102,7 @@ public class RepositoryDBGeneric implements DbRepository<GenericEntity> { //ovde
         try {
             Connection connection = DbConnectionFactory.getInstance().getConnection();
             StringBuilder sb = new StringBuilder();
+
             sb.append("UPDATE ")
                     .append(entity.getTableName())
                     .append(" SET ")
@@ -112,7 +113,9 @@ public class RepositoryDBGeneric implements DbRepository<GenericEntity> { //ovde
             System.out.println(query);
             Statement statement = connection.createStatement();
             statement.executeUpdate(query);
+           
             statement.close();
+           
 
         } catch (SQLException ex) {
             throw ex;
