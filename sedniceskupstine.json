@@ -1,0 +1,161 @@
+[
+  {
+    "sednicaSkupstineId": 32,
+    "datumOdrzavanja": "Jan 18, 2021, 12:06:00 AM",
+    "brojPrisutnih": 4,
+    "dnevniRed": "Placanje ciscenja",
+    "stambenaZajednica": {
+      "stambenaZajednicaId": 1,
+      "ulica": "Hilandarska",
+      "broj": "1",
+      "mesto": {
+        "mestoId": 1,
+        "ptt": "31000",
+        "naziv": "Uzice"
+      },
+      "tekuciRacun": "435453",
+      "banka": "Intesa",
+      "pib": "123",
+      "maticniBroj": "45"
+    },
+    "vlasnici": [
+      {
+        "vlasnikId": 1,
+        "ime": "Dragan",
+        "prezime": "Nikic",
+        "brojPosebnogDela": "4",
+        "velicinaPosebnogDela": 45.0,
+        "mernaJedinica": "m2",
+        "kontaktVlasnika": "dragan@gmail.com",
+        "stambenaZajednica": {
+          "stambenaZajednicaId": 1,
+          "ulica": "Hilandarska",
+          "broj": "1",
+          "mesto": {
+            "mestoId": 1,
+            "ptt": "31000",
+            "naziv": "Uzice"
+          },
+          "tekuciRacun": "435453",
+          "banka": "Intesa",
+          "pib": "123",
+          "maticniBroj": "45"
+        }
+      },
+      {
+        "vlasnikId": 3,
+        "ime": "Katarina",
+        "prezime": "Jovic",
+        "brojPosebnogDela": "6",
+        "velicinaPosebnogDela": 56.0,
+        "mernaJedinica": "m2",
+        "kontaktVlasnika": "kaca@gmail.com",
+        "stambenaZajednica": {
+          "stambenaZajednicaId": 1,
+          "ulica": "Hilandarska",
+          "broj": "1",
+          "mesto": {
+            "mestoId": 1,
+            "ptt": "31000",
+            "naziv": "Uzice"
+          },
+          "tekuciRacun": "435453",
+          "banka": "Intesa",
+          "pib": "123",
+          "maticniBroj": "45"
+        }
+      },
+      {
+        "vlasnikId": 7,
+        "ime": "Katarina",
+        "prezime": "Zivkovic",
+        "brojPosebnogDela": "25",
+        "velicinaPosebnogDela": 41.0,
+        "mernaJedinica": "m2",
+        "kontaktVlasnika": "kaca12@gmail.com",
+        "stambenaZajednica": {
+          "stambenaZajednicaId": 1,
+          "ulica": "Hilandarska",
+          "broj": "1",
+          "mesto": {
+            "mestoId": 1,
+            "ptt": "31000",
+            "naziv": "Uzice"
+          },
+          "tekuciRacun": "435453",
+          "banka": "Intesa",
+          "pib": "123",
+          "maticniBroj": "45"
+        }
+      },
+      {
+        "vlasnikId": 9,
+        "ime": "Marijana",
+        "prezime": "Despic",
+        "brojPosebnogDela": "24",
+        "velicinaPosebnogDela": 34.0,
+        "mernaJedinica": "m2",
+        "kontaktVlasnika": "mari@gmail.com",
+        "stambenaZajednica": {
+          "stambenaZajednicaId": 1,
+          "ulica": "Hilandarska",
+          "broj": "1",
+          "mesto": {
+            "mestoId": 1,
+            "ptt": "31000",
+            "naziv": "Uzice"
+          },
+          "tekuciRacun": "435453",
+          "banka": "Intesa",
+          "pib": "123",
+          "maticniBroj": "45"
+        }
+      }
+    ]
+  },
+  {
+    "sednicaSkupstineId": 33,
+    "datumOdrzavanja": "Jan 18, 2021, 12:06:00 AM",
+    "brojPrisutnih": 1,
+    "dnevniRed": "dsfvdvfdbv",
+    "stambenaZajednica": {
+      "stambenaZajednicaId": 1,
+      "ulica": "Hilandarska",
+      "broj": "1",
+      "mesto": {
+        "mestoId": 1,
+        "ptt": "31000",
+        "naziv": "Uzice"
+      },
+      "tekuciRacun": "435453",
+      "banka": "Intesa",
+      "pib": "123",
+      "maticniBroj": "45"
+    },
+    "vlasnici": [
+      {
+        "vlasnikId": 1,
+        "ime": "Dragan",
+        "prezime": "Nikic",
+        "brojPosebnogDela": "4",
+        "velicinaPosebnogDela": 45.0,
+        "mernaJedinica": "m2",
+        "kontaktVlasnika": "dragan@gmail.com",
+        "stambenaZajednica": {
+          "stambenaZajednicaId": 1,
+          "ulica": "Hilandarska",
+          "broj": "1",
+          "mesto": {
+            "mestoId": 1,
+            "ptt": "31000",
+            "naziv": "Uzice"
+          },
+          "tekuciRacun": "435453",
+          "banka": "Intesa",
+          "pib": "123",
+          "maticniBroj": "45"
+        }
+      }
+    ]
+  }
+]

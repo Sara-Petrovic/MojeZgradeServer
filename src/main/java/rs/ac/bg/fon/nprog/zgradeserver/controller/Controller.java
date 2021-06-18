@@ -5,7 +5,17 @@
  */
 package rs.ac.bg.fon.nprog.zgradeserver.controller;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
 import rs.ac.bg.fon.nprog.zgradeserver.operation.korisnik.LoginOperacija;
 import rs.ac.bg.fon.nprog.zgradeserver.operation.mesto.UcitajListuMestaOperacija;
 import rs.ac.bg.fon.nprog.zgradeserver.operation.sednicaskupstine.KreirajSednicuSkupstineOperacija;
@@ -276,6 +286,35 @@ public class Controller {
     public void zapamtiSednicuSkupstine(SednicaSkupstine sednicaSkupstine) throws Exception {
         ZapamtiSednicuSkupstineOperacija operacija = new ZapamtiSednicuSkupstineOperacija();
         operacija.execute(sednicaSkupstine);
+        List<SednicaSkupstine> sednice=null;
+        //upisujem u json fajl, prvo citam sve postojece sednice pa dodam novu na njih:
+        try(FileReader fileR = new FileReader("sedniceskupstine.json")){//try with resources, automatski ce zatvoriti filewriter cak i ako pukne exception
+        	
+        	Type typeToken = new TypeToken<LinkedList<SednicaSkupstine>>(){}.getType();
+			
+        	Gson gson = new Gson();
+			sednice = gson.fromJson(fileR, typeToken);
+			if(sednice!=null) {
+			sednice.add(sednicaSkupstine);
+			System.out.println("nije null");
+			}else {
+				sednice = new LinkedList<SednicaSkupstine>();
+				sednice.add(sednicaSkupstine);
+			}
+        	
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+        try(FileWriter fileW = new FileWriter("sedniceskupstine.json")){//try with resources, automatski ce zatvoriti filewriter cak i ako pukne exception
+        	
+        
+        	Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+
+			gson.toJson(sednice, fileW); 
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
     }
 
 
